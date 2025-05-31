@@ -39,31 +39,29 @@
       align-items: center;
     }
 
-    .container button {
+    .link-button {
+      display: block;
       width: 80%;
-      padding: 15px;
-      margin: 12px auto;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+      padding: 30px;
+      margin: 15px auto;
+      font-size: 25px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 20px;
       background-color: #6e4adc;
       color: #fcfcfc;
       transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      font-weight: bold;
     }
 
-    .container button:hover {
+    .link-button:hover {
       background-color: #000;
       transform: scale(1.05);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    hr {
-      margin: 0;
-    }
-
     @media (max-width: 500px) {
-      .container button {
+      .link-button {
         width: 90%;
       }
     }
@@ -77,39 +75,23 @@
 
   <div class="content">
     <div class="container">
-      <!-- ...existing code... -->
-<a href="DLCD.html" style="text-decoration:none;">
-  <button><h3>DLCD</h3></button>
-</a>
-<a href="python.html" style="text-decoration:none;">
-  <button><h3>Python</h3></button>
-</a>
-<a href="web.html" style="text-decoration:none;">
-  <button><h3>Web<br>Designing</h3></button>
-</a>
-<a href="enviro.html" style="text-decoration:none;">
-  <button><h3>Environmental<br>Studies</h3></button>
-</a>
-<a href="linear.html" style="text-decoration:none;">
-  <button><h3>Linear<br>Algebra</h3></button>
-</a>
-<a href="fol.html" style="text-decoration:none;">
-  <button><h3>FOL</h3></button>
-</a>
-      <button onclick="python.html"><h3>Python</h3></button>
-      <button onclick="showNotes()"><h3>Web<br>Designing</h3></button>
-      <button onclick="deleteAllNotes()"><h3>Environmental<br>Studies</h3></button>
-      <button onclick="submitNote()"><h3>Linear<br>Algebra</h3></button>
-      <button onclick="submitNote()"><h3>FOL</h3></button>
+      <a href="DLCD.html" class="link-button">DLCD</a>
+      <a href="python.html" class="link-button">Python</a>
+      <a href="web.html" class="link-button">Web<br>Designing</a>
+      <a href="enviro.html" class="link-button">Environmental<br>Studies</a>
+      <a href="linear.html" class="link-button">Linear<br>Algebra</a>
+      <a href="fol.html" class="link-button">FOL</a>
     </div>
 
     <div id="notes-list"></div>
   </div>
 
+  <!-- Firebase scripts -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
