@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FOL</title>
+  <title>fol</title>
   <style>
     body {
       margin: 0;
@@ -29,28 +29,29 @@
     }
 
     .auth-container {
-      background: #0000;
+      background: transparent;
       padding: 30px 100px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
-    .auth-container button {
+    .link-button {
+      display: inline-block;
       width: 200px;
-      height: 70px;  
-      padding: 15px 20px;
+      height: 70px;
+      line-height: 70px;
       margin: 20px 0;
       font-size: 20px;
-      border: none;
-      border-radius: 8px;
+      text-align: center;
       background-color: #6e4adc;
       color: white;
-      cursor: pointer;
+      border-radius: 8px;
+      text-decoration: none;
       transition: background 0.3s ease, transform 0.2s ease;
     }
 
-    .auth-container button:hover {
+    .link-button:hover {
       background-color: #000;
       transform: scale(1.05);
     }
@@ -61,9 +62,25 @@
         padding: 20px;
       }
 
-      .auth-container button {
+      .link-button {
         width: 100%;
       }
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #cf3650;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #000;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -73,29 +90,12 @@
   <hr>
 
   <div class="auth-container">
-    
-    <button onclick="window.location.href='dlcd-notes.html'">Notes</button><br>
-    <button onclick="window.location.href='dlcd-assignment.html'">Assignment</button><br>
-    <button onclick="window.location.href='dlcd-practicals.html'">Practicals</button>
+    <a href="https://drive.google.com/drive/folders/1OARm18d6pArNrnVv0DlnJhoGAyulTviN" class="link-button" target="_blank">Notes</a><br>
+    <a href="https://drive.google.com/drive/folders/1OARm18d6pArNrnVv0DlnJhoGAyulTviN" class="link-button" target="_blank">Assignment</a><br>
+    <a href="https://drive.google.com/drive/folders/1OARm18d6pArNrnVv0DlnJhoGAyulTviN" class="link-button" target="_blank">Practicals</a><br>
   </div>
+
   <a href="dashboard.html" class="back-button">← Back to Dashboard</a>
-    <style>
-        .back-button {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #cf3650;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        transition: background 0.3s ease, transform 0.2s ease;
-        }
-    
-        .back-button:hover {
-        background-color: #000;
-        transform: scale(1.05);
-        }
-    </style>
 
 </body>
 </html>
