@@ -8,7 +8,8 @@ A free-to-access website where students can:
 - Keep it simple and lightweight, supporting around 500 concurrent users.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Core Features
+
+👍Core Features
 
 1. User Authentication
 - Handled using Firebase Authentication.
@@ -27,9 +28,9 @@ Core Features
 5. Frontend Stack
 - HTML, CSS, JavaScript
 
-====================================================================================================
+-----------------------------------------------------------------------------------------------
 
- How the System Flows
+🫠How the System Flows
 
 1. User visits site → Lands on index.html.
 2. Login/Register → Via Firebase Authentication.
@@ -38,9 +39,9 @@ Core Features
 5. Edit/Add Notes → Authenticated users can click edit buttons.
 6. Data Save → Saves/updates in Firestore.
 
-====================================================================================================
+-------------------------------------------------------------------------------------------------
 
- Technologies Used
+🤖Technologies Used
 
 - Authentication	Firebase Authentication
 - Database	Firebase Firestore
@@ -48,9 +49,9 @@ Core Features
 - Frontend	HTML, CSS, JavaScript
 - User Limit Goal	~500 concurrent users
 
-====================================================================================================
+--------------------------------------------------------------------------------------------------
 
- Possible Next Steps (If You Haven’t Done These Yet)
+💁Possible Next Steps (If You Haven’t Done These Yet)
 
 - Add subject filtering and search bar for easier navigation.
 - Add user roles: e.g., Admin can approve edits.
