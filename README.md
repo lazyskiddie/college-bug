@@ -60,3 +60,4 @@ A free-to-access website where students can:
 - Add user roles: e.g., Admin can approve edits.
 - Improve UI using Tailwind CSS or Bootstrap.
 - Write proper README and documentation.
+- integrating the chat system.

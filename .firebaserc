@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "college-bug"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
-
