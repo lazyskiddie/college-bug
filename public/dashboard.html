@@ -2,6 +2,40 @@
 <head>
   <title>College Bug - Dashboard</title>
   <style>
+    .box {
+      width: 50%;
+      height: 120px;
+      border-radius: 20px;
+      margin-top: 30px;
+      margin-left: 100px;
+      margin-right: 100px;
+      margin-bottom: 0;
+      display: inline-block;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+  
+
+    .box-left {
+      background-color: #6e4adc;
+    }
+
+    .box-right {
+      background-color: #6e4adc;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    td {
+      vertical-align: top;
+    }
     body {
       margin: 0;
       padding: 0;
@@ -70,6 +104,23 @@
 
   <div class="header">
     <h1>College Bug 🐞</h1>
+  </div>
+
+  <div class="container">
+    <table>
+    <tr>
+      <td align="left">
+        <a href="https://chat-bug.page.gd/?i=1">
+          <div class="box box-left"></div>
+        </a>
+      </td>
+      <td align="right">
+        <a href="https://example.com/right">
+          <div class="box box-right"></div>
+        </a>
+      </td>
+    </tr>
+  </table>
   </div>
 
   <div class="content">
