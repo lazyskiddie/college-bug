@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>College Bug - Dashboard</title>
@@ -13,7 +14,15 @@
       display: inline-block;
       transition: transform 0.5s, opacity 0.5s;
     }
-  
+
+    .box a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #fcfcfc;
+      font-weight: bold;
+    }
 
     .box-left {
       background-color: #6e4adc;
@@ -36,6 +45,7 @@
     td {
       vertical-align: top;
     }
+
     body {
       margin: 0;
       padding: 0;
@@ -98,6 +108,16 @@
         width: 90%;
       }
     }
+
+    .box-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -108,19 +128,23 @@
 
   <div class="container">
     <table>
-    <tr>
-      <td align="left">
-        <a href="https://chat-bug.page.gd/?i=1">
-          <div class="box box-left"></div>
-        </a>
-      </td>
-      <td align="right">
-        <a href="https://example.com/right">
-          <div class="box box-right"></div>
-        </a>
-      </td>
-    </tr>
-  </table>
+      <tr>
+        <td align="left">
+          <a href="https://chat-bug.page.gd/?i=1">
+            <div class="box box-left">
+              <div class="box-content">Chat Box</div>
+            </div>
+          </a>
+        </td>
+        <td align="right">
+          <a href="https://example.com/right">
+            <div class="box box-right">
+              <div class="box-content">Notes Box</div>
+            </div>
+          </a>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div class="content">
