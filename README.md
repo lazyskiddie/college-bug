@@ -5,9 +5,8 @@ You can Acces the website :- https://college-bug.web.app/dashboard.html
 
 Purpose:
 A free-to-access website where students can:
-
 - Organize and share subject-wise, chapter-wise notes.
-- Log in to edit or upload content.
+- easy access of notes.
 - Keep it simple and lightweight, supporting around 500 concurrent users.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,6 @@ A free-to-access website where students can:
 2. Login/Register → Via Firebase Authentication.
 3. Dashboard → Displays structured notes:
 4. Subjects → Chapters → Notes.
-5. Edit/Add Notes → Authenticated users can click edit buttons.
 6. Data Save → Saves/updates in Firestore.
 
 -------------------------------------------------------------------------------------------------
@@ -50,7 +48,11 @@ A free-to-access website where students can:
 - Database	Firebase Firestore
 - Hosting (Backend)	Firebase Functions
 - Frontend	HTML, CSS, JavaScript
-- User Limit Goal	~500 concurrent users
+
+--------------------------------------------------------------------------------------------------
+
+chat System
+Introducing the chat system for the users. so, they can chat will all the fello met who is available on the web site till 24hrs after that the chat will be deleted from the system automatically.
 
 --------------------------------------------------------------------------------------------------
 
