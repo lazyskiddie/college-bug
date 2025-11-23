@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9508629460019584"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk to AI</title>
+  <style>
+    /* CSS Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #06022a6b;
+      margin: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background-color: #1db7ea;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      position: relative;
+    }
+    .back-button {
+      position: absolute;
+      left: 15px;
+      top: 10px;
+      background: #f6042c;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none; /* Make it look like a button */
+      transition: 0.3s;
+    }
+    .back-button:hover {
+      background: #0724e2;
+    }
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 15px;
+      overflow-y: auto;
+    }
+    .message {
+      margin: 8px 0;
+      padding: 10px 14px;
+      border-radius: 12px;
+      max-width: 75%;
+      word-wrap: break-word;
+    }
+    .user {
+      align-self: flex-end;
+      background-color: #0f4fd9;
+    }
+    .ai {
+      align-self: flex-start;
+      background-color: #c8c8c8;
+      color: #000;
+    }
+    .input-area {
+      display: flex;
+      padding: 10px;
+      background-color: #0a18c5;
+      border-top: 1px solid #1b2acc;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+    }
+    .input-area button {
+      background-color: #2a6efc;
+      color: #fff;
+      border: none;
+      margin-left: 10px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .input-area button:hover {
+      background-color: #1a54d3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../dashboard.html" class="back-button">← Back to Dashboard</a>
+    Talk to AI
+  </header>
+
+  <div class="chat-container" id="chatContainer">
+    <div class="message ai">Hello 👋 I'm your AI assistant! How can I help you today?</div>
+  </div>
+
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="Type your question..." />
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <script>
+    // JavaScript Logic
+    const chatContainer = document.getElementById("chatContainer");
+    const userInput = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+
+    // 🔑 IMPORTANT: Replace the placeholder key below with your actual Gemini API key
+    const GEMINI_API_KEY = ""; 
+    
+    // FIX: Use a template literal (backticks) to correctly insert the variable's value
+    const API_URL =`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.classList.add("message", sender);
+      msg.textContent = text;
+      chatContainer.appendChild(msg);
+      // Scroll to the latest message
+      chatContainer.scrollTop = chatContainer.scrollHeight; 
+    }
+
+    async function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+      
+      // Display user message
+      addMessage(text, "user");
+      userInput.value = "";
+
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            // The API expects the request content in a specific format
+            contents: [{ parts: [{ text }] }] 
+          })
+        });
+
+        // Robust error handling for network issues or API key problems
+        if (!res.ok) {
+            const errorBody = await res.text();
+            console.error("API Request Failed:", res.status, errorBody);
+            addMessage(`⚠️ API Error (Status: ${res.status}). Check your console/API Key.`, "ai");
+            return; 
+        }
+
+        const data = await res.json();
+        
+        // Extract the AI's response text
+        const aiReply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't understand that or the API returned an empty response.";
+        
+        // Display AI message
+        addMessage(aiReply, "ai");
+      } catch (err) {
+        addMessage("⚠️ Network error. Could not connect to the API.", "ai");
+        console.error(err);
+      }
+    }
+
+    // Event listeners
+    sendBtn.addEventListener("click", sendMessage);
+    userInput.addEventListener("keypress", e => {
+      // Send message when the Enter key is pressed
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>
